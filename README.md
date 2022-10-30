@@ -67,6 +67,8 @@ $ sudo adduser <username>             # add new user
 $ sudo chage -l <username>            # check password status
 ..
 $ sudo adduser <username> <groupname> # add user to group
+..
+$ sudo deluser <username>
 ```
 
 To creat a new user `group` and add `user`to it
@@ -113,4 +115,11 @@ $ sudo bash /usr/local/bin/monitoring.sh
 a service to transfer files
 ```shell
 sudo service vsftpd status
+```
+
+### evaluation
+```shell
+$ sudo nano /etc/hostname
+# sudo logs in
+$ cd /var/log/sudo
 ```
