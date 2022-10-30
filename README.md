@@ -26,7 +26,6 @@ sudo nano /etc/ssh/sshd_config
 sudo grep  Port /etc/ssh/sshd_config
 ```
 
-
 ### ufw
 check ufw firewall status
 ```shell
@@ -42,14 +41,14 @@ active
 .. # add rule new rule 
 $ sudo ufw allow <4242>
 .. # delete rule
-$ sudo ufw delete <2_to remove the 22 rule>
+$ sudo ufw delete <2 to remove the 22 rule>
 ```
 
 ### sudo
 ```shell
-su -
-suermod -aG sudo <username>
-groups <username>
+$ su -
+$ suermod -aG sudo <username>
+$ groups <username>
 ```
 super suser privilages `su -`
 ```shell 
@@ -61,23 +60,26 @@ add the line following line to the file
 ```
 
 ### new `user` and `group`
-To creat a new user `group` and `user`
+creat a new user
 ```shell
-$ sudo groupadd <groupname>
-.. #add user to group
-$ sudo adduser <username>
-.. #check users in group
-$ getent group <group_name> 
+$ sudo adduser <username>             # add new user
+..
+$ sudo chage -l <username>            # check password status
+..
+$ sudo adduser <username> <groupname> # add user to group
+```
+
+To creat a new user `group` and add `user`to it
+```shell
+$ sudo addgroup <groupname>           # make a new group
+.. 
+$ sudo adduser <username> <groupname> #add user to group
+.. 
+$ getent group <groupname>            #check users in group
 ```
 to check all the current users
 ```shell
 $ cut -d: -f1 /etc/passwd
-```
-to add user to a group
-```shell
-$ sudo usermod -aG <group_name> <user_name>
-.. # see all user groups
-$ groups
 ```
 check user password status
 ```shell
@@ -90,11 +92,11 @@ logged sudo actions are saved in `/var/log/sudo/sudo.log`
 ### crontab
 used to schdule things
 ```shell
-# setup a cron job with
-$ sudo crontab -u root -e
-# to show the currect crontab tasts to run
-$ sudo crontab -u root -l
-.. # in this format 
+
+$ sudo crontab -u root -e             # setup a cron job with
+.. 
+$ sudo crontab -u root -l             # to show the currect crontab tasts to run
+# in this format 
 # m h  dom mon dow   command 
 # do* == day of, month / week
 ```
